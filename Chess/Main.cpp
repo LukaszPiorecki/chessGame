@@ -16,6 +16,8 @@
 
 int main()
 {
+    //git test
+
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Chess" , sf::Style::Close);
     window.setFramerateLimit(FRAME_RATE_LIMIT);

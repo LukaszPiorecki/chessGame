@@ -12,6 +12,9 @@
 #define WHITE_TOWER_IMAGE_PATH "Graphics/figures/tower.png"
 #define BLACK_TOWER_IMAGE_PATH "Graphics/figures/towerBlack.png"
 
+#define WHITE_KNIGHT_IMAGE_PATH "Graphics/figures/knight.png"
+#define BLACK_KNIGHT_IMAGE_PATH "Graphics/figures/knightBlack.png"
+
 class BoardElement : public Entity
 {
 private:

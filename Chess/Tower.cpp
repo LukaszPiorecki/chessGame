@@ -2,7 +2,6 @@
 
 void Tower::move(Board& t_board, std::unique_ptr<Piece>** t_arrangement)
 {
-	std::cout << "ok\n";
 	for (short x = getX() - 1; x >= 0; x--)
 	{
 		if (t_arrangement[x][getY()] == nullptr)

@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Pawn.h"
+#include "Tower.h"
 
 #define PAWN 1
 #define TOWER 2
@@ -17,14 +18,14 @@ private:
 	//bool type;
 	
 	short initialArrangement[8][8] = {
+		{ 2 , 1 , 0 , 0 , 0 , 0 , 1 , 2 },
 		{ 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 },
 		{ 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 },
 		{ 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 },
 		{ 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 },
 		{ 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 },
 		{ 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 },
-		{ 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 },
-		{ 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 },
+		{ 2 , 1 , 0 , 0 , 0 , 0 , 1 , 2 },
 	};
 
 public:

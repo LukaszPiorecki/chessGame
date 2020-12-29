@@ -14,6 +14,9 @@ void Game::arrangeFigures(Board& t_board, bool t_switchColor)
 				case PAWN:
 					arrangement[x][y].reset(new Pawn(x, y, !(t_switchColor), t_board));
 					break;
+				case TOWER:
+					arrangement[x][y].reset(new Tower(x, y, !(t_switchColor), t_board));
+					break;
 			}
 		}
 	}

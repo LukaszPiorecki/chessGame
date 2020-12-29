@@ -9,7 +9,11 @@ class Entity : public sf::Drawable, public sf::Transformable
 	protected:
 		mutable sf::Sprite sprite;
 
-		void setTexture(sf::Texture t_texture) { texture = t_texture; };
+		void setTexture(sf::Texture t_texture) 
+		{ 
+			texture = t_texture;
+			texture.setSmooth(true);
+		};
 		sf::Texture getTexture() { return texture; };
 
 		void setOriginCentered() { sprite.setOrigin(texture.getSize().x / 2.0, texture.getSize().y / 2.0); };

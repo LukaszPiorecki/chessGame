@@ -63,7 +63,6 @@ void Piece::raise(Cursor& t_cursor, std::unique_ptr<Piece>** t_arrangement, Boar
 				if (possibleMoves[i]->hitbox.contains(t_cursor.getPosition()))
 				{
 					temp = 0;
-					//std::cout << i << '\n';
 					sprite.setPosition(possibleMoves[i]->getPos());
 					positionOnBoard = possibleMoves[i]->getPos();
 					

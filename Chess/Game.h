@@ -16,19 +16,7 @@ private:
 	bool result;
 	//bool type;
 	
-	/*short arrangement[8][8] = {
-		{ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
-		{ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
-		{ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
-		{ 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 },
-		{ 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 },
-		{ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
-		{ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
-		{ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
-	};*/
-
-public:
-	short arrangement[8][8] = {
+	short initialArrangement[8][8] = {
 		{ 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 },
 		{ 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 },
 		{ 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 },
@@ -39,7 +27,11 @@ public:
 		{ 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 },
 	};
 
-	std::vector<Piece*> pieces;
+public:
+	std::unique_ptr<Piece>** arrangement = new std::unique_ptr<Piece> * [8];
+	
+
+	//std::vector<Piece*> pieces;
 	//std::vector<Tower> towers;
 
 	void arrangeFigures(Board& t_board, bool t_switchColor = 0);

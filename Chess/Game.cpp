@@ -1,14 +1,18 @@
 #include "Game.h"
 void Game::arrangeFigures(Board& t_board, bool t_switchColor)
 {
+	for (int i = 0; i < 8; i++)
+	{
+		arrangement[i] = new std::unique_ptr<Piece>[8];
+	}
 	for (int y = 0; y < 8; y++)
 	{
 		for (int x = 0; x < 8; x++)
 		{
-			switch (arrangement[x][y])
+			switch (initialArrangement[x][y])
 			{
 				case PAWN:
-					pieces.push_back(new Pawn(x,y, !t_switchColor,t_board));
+					arrangement[x][y].reset(new Pawn(x, y, !(t_switchColor), t_board));
 					break;
 			}
 		}

@@ -53,7 +53,7 @@ protected:
 	//std::vector<PossibleMove> PossibleAttack;
 	sf::Vector2f positionOnBoard;
 
-	virtual void move(Board& t_board, short t_arrangement[8][8]) {};
+	virtual void move(Board& t_board, std::unique_ptr<Piece>** t_arrangement) {};
 public:
 	enum Color
 	{
@@ -61,11 +61,12 @@ public:
 		Black = 0
 	};
 	void setColor(bool t_color) { color = t_color; };
+	bool getColor() { return color; }
 
-	void raise(Cursor& t_cursor, short t_arrangement[8][8], Board& t_board);
+	void raise(Cursor& t_cursor, std::unique_ptr<Piece>** t_arrangement, Board& t_board);
 
 	void setIsBeingMoved(bool t_m);
 	bool getIsBeingMoved() { return isBeingMoved; };
-
+	~Piece() { possibleMoves.clear(); };
 	void updatePiece(sf::RenderTarget& target, const sf::RenderStates t_states = sf::RenderStates::Default);
 };

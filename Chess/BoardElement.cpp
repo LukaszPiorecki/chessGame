@@ -29,10 +29,9 @@ void Piece::updatePiece(sf::RenderTarget& target, const sf::RenderStates t_state
 
 void Piece::setIsBeingMoved(bool t_m)
 {
-	if (!(t_m)) possibleMoves.clear();
 	isBeingMoved = t_m;
 }
-void Piece::raise(Cursor& t_cursor, short t_arrangement[8][8], Board& t_board)
+void Piece::raise(Cursor& t_cursor, std::unique_ptr<Piece>** t_arrangement, Board& t_board)
 {
 	if ((t_cursor.isAlreadyMoving() == false) && (getIsBeingMoved() == false))
 	{
@@ -54,24 +53,34 @@ void Piece::raise(Cursor& t_cursor, short t_arrangement[8][8], Board& t_board)
 		if (!(t_cursor.isClicked()))
 		{
 			sprite.setPosition(positionOnBoard);
+			setIsBeingMoved(false);
+			setZ(0);
+
+			bool temp = 1;
 			for (int i = 0; i < possibleMoves.size(); i++)
 			{
 
 				if (possibleMoves[i]->hitbox.contains(t_cursor.getPosition()))
 				{
+					temp = 0;
 					//std::cout << i << '\n';
 					sprite.setPosition(possibleMoves[i]->getPos());
-					t_arrangement[getX()][getY()] = 0;
-					this->setXY(possibleMoves[i]->getX(), possibleMoves[i]->getY());
 					positionOnBoard = possibleMoves[i]->getPos();
-					t_arrangement[possibleMoves[i]->getX()][possibleMoves[i]->getY()] = 1;
+					
+					short tempX = getX();
+					short tempY = getY();
+					
+					this->setXY(possibleMoves[i]->getX(), possibleMoves[i]->getY());
+					t_arrangement[possibleMoves[i]->getX()][possibleMoves[i]->getY()].reset(this);
+					possibleMoves.clear();
+					t_arrangement[tempX][tempY].release();
+					
 					break;
 				}
 			}
-
+			if (temp) possibleMoves.clear();
 			t_cursor.setAlreadyMoving(false);
-			setIsBeingMoved(false);
-			setZ(0);
+			
 		}
 	}
 }

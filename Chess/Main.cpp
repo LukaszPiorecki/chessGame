@@ -16,7 +16,6 @@
 
 int main()
 {
-    //git test
 
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Chess" , sf::Style::Close);
@@ -65,12 +64,18 @@ int main()
 
             for (int z = 0; z < 3; z++)
             {
-                for (int i = 0; i < game.pieces.size(); i++)
+                for (int y = 0; y < 8; y++)
                 {
-                    if (game.pieces[i]->getZ() == z)
+                    for (int x = 0; x < 8; x++)
                     {
-                        game.pieces[i]->raise(cursor, game.arrangement, board);
-                        game.pieces[i]->updatePiece(window);
+                        if (game.arrangement[x][y] != nullptr)
+                        {
+                            if (game.arrangement[x][y]->getZ() == z)
+                            {
+                                game.arrangement[x][y]->updatePiece(window);
+                                game.arrangement[x][y]->raise(cursor, game.arrangement, board);
+                            }
+                        }
                     }
                 }
             }

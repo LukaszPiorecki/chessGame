@@ -159,6 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bishop.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="BoardElement.cpp" />
     <ClCompile Include="Cursor.cpp" />
@@ -174,9 +175,11 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Łukasz\source\libraries\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="Pawn.cpp" />
+    <ClCompile Include="Queen.cpp" />
     <ClCompile Include="Tower.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bishop.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="BoardElement.h" />
     <ClInclude Include="Cursor.h" />
@@ -184,6 +187,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Knight.h" />
     <ClInclude Include="Pawn.h" />
+    <ClInclude Include="Queen.h" />
     <ClInclude Include="Tower.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

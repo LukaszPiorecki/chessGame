@@ -54,6 +54,12 @@
     <ClCompile Include="Knight.cpp">
       <Filter>Source Files\components\figures</Filter>
     </ClCompile>
+    <ClCompile Include="Bishop.cpp">
+      <Filter>Source Files\components\figures</Filter>
+    </ClCompile>
+    <ClCompile Include="Queen.cpp">
+      <Filter>Source Files\components\figures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pawn.h">
@@ -78,6 +84,12 @@
       <Filter>Header Files\figures</Filter>
     </ClInclude>
     <ClInclude Include="Knight.h">
+      <Filter>Header Files\figures</Filter>
+    </ClInclude>
+    <ClInclude Include="Bishop.h">
+      <Filter>Header Files\figures</Filter>
+    </ClInclude>
+    <ClInclude Include="Queen.h">
       <Filter>Header Files\figures</Filter>
     </ClInclude>
   </ItemGroup>

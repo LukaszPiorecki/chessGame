@@ -26,6 +26,9 @@ void Game::arrangeFigures(Board& t_board, bool t_switchColor)
 				case QUEEN:
 					arrangement[x][y].reset(new Queen(x, y, !(t_switchColor), t_board));
 					break;
+				case KING:
+					arrangement[x][y].reset(new King(x, y, !(t_switchColor), t_board));
+					break;
 			}
 		}
 	}

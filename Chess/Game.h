@@ -5,6 +5,7 @@
 #include "Knight.h"
 #include "Bishop.h"
 #include "Queen.h"
+#include "King.h"
 
 #define PAWN 1
 #define TOWER 2

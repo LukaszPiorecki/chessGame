@@ -60,6 +60,9 @@
     <ClCompile Include="Queen.cpp">
       <Filter>Source Files\components\figures</Filter>
     </ClCompile>
+    <ClCompile Include="King.cpp">
+      <Filter>Source Files\components\figures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pawn.h">
@@ -90,6 +93,9 @@
       <Filter>Header Files\figures</Filter>
     </ClInclude>
     <ClInclude Include="Queen.h">
+      <Filter>Header Files\figures</Filter>
+    </ClInclude>
+    <ClInclude Include="King.h">
       <Filter>Header Files\figures</Filter>
     </ClInclude>
   </ItemGroup>

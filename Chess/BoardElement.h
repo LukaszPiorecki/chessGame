@@ -21,6 +21,9 @@
 #define WHITE_QUEEN_IMAGE_PATH "Graphics/figures/queen.png"
 #define BLACK_QUEEN_IMAGE_PATH "Graphics/figures/queenBlack.png"
 
+#define WHITE_KING_IMAGE_PATH "Graphics/figures/king.png"
+#define BLACK_KING_IMAGE_PATH "Graphics/figures/kingBlack.png"
+
 class BoardElement : public Entity
 {
 private:

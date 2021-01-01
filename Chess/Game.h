@@ -6,13 +6,7 @@
 #include "Bishop.h"
 #include "Queen.h"
 #include "King.h"
-
-#define PAWN 1
-#define TOWER 2
-#define KNIGHT 3
-#define BISHOP 4
-#define QUEEN 5
-#define KING 6
+#include "Consts.h"
 
 class Game
 {
@@ -35,7 +29,6 @@ private:
 public:
 	std::unique_ptr<Piece>** arrangement = new std::unique_ptr<Piece> * [8];
 	
-
 	//std::vector<Piece*> pieces;
 	//std::vector<Tower> towers;
 

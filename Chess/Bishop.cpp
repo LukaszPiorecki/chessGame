@@ -57,6 +57,8 @@ void Bishop::move(Board& t_board, std::unique_ptr<Piece>** t_arrangement)
 
 Bishop::Bishop(int t_x, int t_y, bool t_color, Board& t_board)
 {
+	setType(4);
+
 	setX(t_x);
 	setY(t_y);
 

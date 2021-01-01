@@ -1,5 +1,6 @@
 #include "BoardElement.h"
 
+
 PossibleMove::PossibleMove(Board& t_board, short t_x, short t_y)
 {
 	sf::Texture texture;
@@ -70,6 +71,9 @@ void Piece::raise(Cursor& t_cursor, std::unique_ptr<Piece>** t_arrangement, Boar
 					short tempY = getY();
 					
 					this->setXY(possibleMoves[i]->getX(), possibleMoves[i]->getY());
+					//t_arrangement[t_kingsPos.whiteKingPos.x][t_kingsPos.whiteKingPos.y]->isEndangered()
+					/*std::cout << t_kingsPos.whiteKingPos.x << " " << t_kingsPos.whiteKingPos.y << '\n';
+					std::cout << t_kingsPos.blackKingPos.x << " " << t_kingsPos.blackKingPos.y << "\n\n";*/
 					t_arrangement[possibleMoves[i]->getX()][possibleMoves[i]->getY()].reset(this);
 					possibleMoves.clear();
 					t_arrangement[tempX][tempY].release();

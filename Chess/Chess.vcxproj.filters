@@ -98,5 +98,8 @@
     <ClInclude Include="King.h">
       <Filter>Header Files\figures</Filter>
     </ClInclude>
+    <ClInclude Include="Consts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

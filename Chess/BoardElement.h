@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "Board.h"
 #include "Cursor.h"
+#include "Consts.h"
 #include <SFML/Graphics.hpp>
 
 #define POSSIBLE_MOVE_IMAGE_PATH "Graphics/PossibleMove/PossibleMove.png"
@@ -57,6 +58,28 @@ public:
 	
 };
 
+const short knightMovement[8][2] = {
+	{2,1},
+	{2,-1},
+	{-2,1},
+	{-2,-1},
+	{1,2},
+	{-1,2},
+	{1,-2},
+	{-1,-2},
+};
+
+const short kingMovement[8][2] = {
+	{0,1},
+	{1,1},
+	{-1,1},
+	{1,0},
+	{-1,0},
+	{0,-1},
+	{1,-1},
+	{-1,-1},
+};
+
 class Piece : public BoardElement
 {
 private:
@@ -64,17 +87,22 @@ private:
 protected:
 	short moveDirection;
 	bool color;
+	short type;
 	std::vector<PossibleMove*> possibleMoves;
 	//std::vector<PossibleMove> PossibleAttack;
 	sf::Vector2f positionOnBoard;
 
 	virtual void move(Board& t_board, std::unique_ptr<Piece>** t_arrangement) {};
+
+	void setType(short t_type) { type = t_type; }
 public:
 	enum Color
 	{
 		White = 1,
 		Black = 0
 	};
+	short getType() { return type; }
+
 	void setColor(bool t_color) { color = t_color; };
 	bool getColor() { return color; }
 
@@ -82,6 +110,9 @@ public:
 
 	void setIsBeingMoved(bool t_m);
 	bool getIsBeingMoved() { return isBeingMoved; };
+
 	~Piece() { possibleMoves.clear(); };
 	void updatePiece(sf::RenderTarget& target, const sf::RenderStates t_states = sf::RenderStates::Default);
+
+	bool isEndangered(short t_x, short t_y, std::unique_ptr<Piece>** t_arrangement);
 };

@@ -2,85 +2,28 @@
 #include "Pawn.h"
 void King::move(Board& t_board, std::unique_ptr<Piece>** t_arrangement)
 {
-	if (getY() + 1 < 8)
+	for (int i = 0; i < 8; i++)
 	{
-		if (t_arrangement[getX()][getY() + 1] != nullptr)
+		if ((getX() + kingMovement[i][0] >= 0) && (getX() + kingMovement[i][0] < 8))
 		{
-			if (t_arrangement[getX()][getY() + 1]->getColor() != color)
-				possibleMoves.push_back(new PossibleMove(t_board, getX(), getY() + 1));
-		}
-		else possibleMoves.push_back(new PossibleMove(t_board, getX(), getY() + 1));
-
-		if (getX() - 1 >= 0)
-		{
-			if (t_arrangement[getX() - 1][getY() + 1] != nullptr)
+			if ((getY() + kingMovement[i][1] >= 0) && (getY() + kingMovement[i][1] < 8))
 			{
-				if (t_arrangement[getX() - 1][getY() + 1]->getColor() != color)
-					possibleMoves.push_back(new PossibleMove(t_board, getX() - 1, getY() + 1));
+				if (t_arrangement[getX() + kingMovement[i][0]][getY() + kingMovement[i][1]] != nullptr)
+				{
+					if (t_arrangement[getX() + kingMovement[i][0]][getY() + kingMovement[i][1]]->getColor() != color)
+						possibleMoves.push_back(new PossibleMove(t_board, getX() + kingMovement[i][0], getY() + kingMovement[i][1]));
+				}
+				else
+					possibleMoves.push_back(new PossibleMove(t_board, getX() + kingMovement[i][0], getY() + kingMovement[i][1]));
 			}
-			else possibleMoves.push_back(new PossibleMove(t_board, getX() - 1, getY() + 1));
 		}
-		if (getX() + 1 < 8)
-		{
-			if (t_arrangement[getX() + 1][getY() + 1] != nullptr)
-			{
-				if (t_arrangement[getX() + 1][getY() + 1]->getColor() != color)
-					possibleMoves.push_back(new PossibleMove(t_board, getX() + 1, getY() + 1));
-			}
-			else possibleMoves.push_back(new PossibleMove(t_board, getX() + 1, getY() + 1));
-		}
-	}
-	if (getY() - 1 >= 0)
-	{
-		if (t_arrangement[getX()][getY() - 1] != nullptr)
-		{
-			if (t_arrangement[getX()][getY() - 1]->getColor() != color)
-				possibleMoves.push_back(new PossibleMove(t_board, getX(), getY() - 1));
-		}
-		else possibleMoves.push_back(new PossibleMove(t_board, getX(), getY() - 1));
-
-		if (getX() - 1 >= 0)
-		{
-			if (t_arrangement[getX() - 1][getY() - 1] != nullptr)
-			{
-				if (t_arrangement[getX() - 1][getY() - 1]->getColor() != color)
-					possibleMoves.push_back(new PossibleMove(t_board, getX() - 1, getY() - 1));
-			}
-			else possibleMoves.push_back(new PossibleMove(t_board, getX() - 1, getY() - 1));
-		}
-		if (getX() + 1 < 8)
-		{
-			if (t_arrangement[getX() + 1][getY() - 1] != nullptr)
-			{
-				if (t_arrangement[getX() + 1][getY() - 1]->getColor() != color)
-					possibleMoves.push_back(new PossibleMove(t_board, getX() + 1, getY() - 1));
-			}
-			else possibleMoves.push_back(new PossibleMove(t_board, getX() + 1, getY() - 1));
-		}
-	}
-
-	if (getX() - 1 >= 0)
-	{
-		if (t_arrangement[getX() - 1][getY()] != nullptr)
-		{
-			if (t_arrangement[getX() - 1][getY()]->getColor() != color)
-				possibleMoves.push_back(new PossibleMove(t_board, getX() - 1, getY()));
-		}
-		else possibleMoves.push_back(new PossibleMove(t_board, getX() - 1, getY()));
-	}
-	if (getX() + 1 < 8)
-	{
-		if (t_arrangement[getX() + 1][getY()] != nullptr)
-		{
-			if (t_arrangement[getX() + 1][getY()]->getColor() != color)
-				possibleMoves.push_back(new PossibleMove(t_board, getX() + 1, getY()));
-		}
-		else possibleMoves.push_back(new PossibleMove(t_board, getX() + 1, getY()));
 	}
 }
 
 King::King(int t_x, int t_y, bool t_color, Board& t_board)
 {
+	setType(6);
+
 	setX(t_x);
 	setY(t_y);
 

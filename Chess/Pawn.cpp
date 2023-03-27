@@ -15,16 +15,16 @@ void Pawn::move(Board& t_board, std::unique_ptr<Piece>** t_arrangement)
 			if ((t_arrangement[getX()][getY() + (i * moveDirection)]) == nullptr)
 			{
 				//std::cout << x << " " << y << "\n";
-				possibleMoves.push_back(new PossibleMove(t_board, getX(), getY() + (i * moveDirection)));
+				possibleMoves.push_back(PossibleMove(t_board, getX(), getY() + (i * moveDirection)));
 			}
 			else break;
 		}
 
 		if (getX() - 1 >= 0)
-			if ((t_arrangement[getX() - 1][getY() + (1 * moveDirection)] != nullptr) && (t_arrangement[getX() - 1][getY() + (1 * moveDirection)]->getColor() != color)) { possibleMoves.push_back(new PossibleMove(t_board, getX() - 1, getY() + (1 * moveDirection))); }
+			if ((t_arrangement[getX() - 1][getY() + (1 * moveDirection)] != nullptr) && (t_arrangement[getX() - 1][getY() + (1 * moveDirection)]->getColor() != color)) { possibleMoves.push_back(PossibleMove(t_board, getX() - 1, getY() + (1 * moveDirection))); }
 
 		if (getX() + 1 < 8)
-			if ((t_arrangement[getX() + 1][getY() + (1 * moveDirection)] != nullptr) && (t_arrangement[getX() + 1][getY() + (1 * moveDirection)]->getColor() != color)) { possibleMoves.push_back(new PossibleMove(t_board, getX() + 1, getY() + (1 * moveDirection))); }
+			if ((t_arrangement[getX() + 1][getY() + (1 * moveDirection)] != nullptr) && (t_arrangement[getX() + 1][getY() + (1 * moveDirection)]->getColor() != color)) { possibleMoves.push_back(PossibleMove(t_board, getX() + 1, getY() + (1 * moveDirection))); }
 	}
 }
 

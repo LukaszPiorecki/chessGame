@@ -22,7 +22,7 @@ void Piece::updatePiece(sf::RenderTarget& target, const sf::RenderStates t_state
 {
 	for (int i = 0; i < possibleMoves.size(); i++)
 	{
-		possibleMoves[i]->draw(target);
+		possibleMoves[i].draw(target);
 	}
 
 	draw(target, t_states);
@@ -61,27 +61,31 @@ void Piece::raise(Cursor& t_cursor, std::unique_ptr<Piece>** t_arrangement, Boar
 			for (int i = 0; i < possibleMoves.size(); i++)
 			{
 
-				if (possibleMoves[i]->hitbox.contains(t_cursor.getPosition()))
+				if (possibleMoves[i].hitbox.contains(t_cursor.getPosition()))
 				{
 					temp = 0;
-					sprite.setPosition(possibleMoves[i]->getPos());
-					positionOnBoard = possibleMoves[i]->getPos();
+					sprite.setPosition(possibleMoves[i].getPos());
+					positionOnBoard = possibleMoves[i].getPos();
 					
 					short tempX = getX();
 					short tempY = getY();
 					
-					this->setXY(possibleMoves[i]->getX(), possibleMoves[i]->getY());
+					this->setXY(possibleMoves[i].getX(), possibleMoves[i].getY());
+
+					t_arrangement[possibleMoves[i].getX()][possibleMoves[i].getY()].reset(this);
+					possibleMoves.clear();
+					t_arrangement[tempX][tempY].release();
+
 					//t_arrangement[t_kingsPos.whiteKingPos.x][t_kingsPos.whiteKingPos.y]->isEndangered()
 					/*std::cout << t_kingsPos.whiteKingPos.x << " " << t_kingsPos.whiteKingPos.y << '\n';
 					std::cout << t_kingsPos.blackKingPos.x << " " << t_kingsPos.blackKingPos.y << "\n\n";*/
-					t_arrangement[possibleMoves[i]->getX()][possibleMoves[i]->getY()].reset(this);
-					possibleMoves.clear();
-					t_arrangement[tempX][tempY].release();
-					
 					break;
 				}
 			}
-			if (temp) possibleMoves.clear();
+
+			if (temp) 
+				possibleMoves.clear();
+
 			t_cursor.setAlreadyMoving(false);
 			
 		}

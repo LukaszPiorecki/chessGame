@@ -11,10 +11,10 @@ void King::move(Board& t_board, std::unique_ptr<Piece>** t_arrangement)
 				if (t_arrangement[getX() + kingMovement[i][0]][getY() + kingMovement[i][1]] != nullptr)
 				{
 					if (t_arrangement[getX() + kingMovement[i][0]][getY() + kingMovement[i][1]]->getColor() != color)
-						possibleMoves.push_back(new PossibleMove(t_board, getX() + kingMovement[i][0], getY() + kingMovement[i][1]));
+						possibleMoves.push_back(PossibleMove(t_board, getX() + kingMovement[i][0], getY() + kingMovement[i][1]));
 				}
 				else
-					possibleMoves.push_back(new PossibleMove(t_board, getX() + kingMovement[i][0], getY() + kingMovement[i][1]));
+					possibleMoves.push_back(PossibleMove(t_board, getX() + kingMovement[i][0], getY() + kingMovement[i][1]));
 			}
 		}
 	}

@@ -6,11 +6,11 @@ void Tower::move(Board& t_board, std::unique_ptr<Piece>** t_arrangement)
 	{
 		if (t_arrangement[x][getY()] == nullptr)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, x, getY()));
+			possibleMoves.push_back(PossibleMove(t_board, x, getY()));
 		}
 		else if (t_arrangement[x][getY()]->getColor() != color)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, x, getY()));
+			possibleMoves.push_back(PossibleMove(t_board, x, getY()));
 			break;
 		}
 		else break;
@@ -20,11 +20,11 @@ void Tower::move(Board& t_board, std::unique_ptr<Piece>** t_arrangement)
 	{
 		if (t_arrangement[x][getY()] == nullptr)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, x, getY()));
+			possibleMoves.push_back(PossibleMove(t_board, x, getY()));
 		}
 		else if (t_arrangement[x][getY()]->getColor() != color)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, x, getY()));
+			possibleMoves.push_back(PossibleMove(t_board, x, getY()));
 			break;
 		}
 		else break;
@@ -34,11 +34,11 @@ void Tower::move(Board& t_board, std::unique_ptr<Piece>** t_arrangement)
 	{
 		if (t_arrangement[getX()][y] == nullptr)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, getX(), y));
+			possibleMoves.push_back(PossibleMove(t_board, getX(), y));
 		}
 		else if (t_arrangement[getX()][y]->getColor() != color)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, getX(), y));
+			possibleMoves.push_back(PossibleMove(t_board, getX(), y));
 			break;
 		}
 		else break;
@@ -48,11 +48,11 @@ void Tower::move(Board& t_board, std::unique_ptr<Piece>** t_arrangement)
 	{
 		if (t_arrangement[getX()][y] == nullptr)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, getX(), y));
+			possibleMoves.push_back(PossibleMove(t_board, getX(), y));
 		}
 		else if (t_arrangement[getX()][y]->getColor() != color)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, getX(), y));
+			possibleMoves.push_back(PossibleMove(t_board, getX(), y));
 			break;
 		}
 		else break;

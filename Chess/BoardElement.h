@@ -88,7 +88,7 @@ protected:
 	short moveDirection;
 	bool color;
 	short type;
-	std::vector<PossibleMove*> possibleMoves;
+	std::vector<PossibleMove> possibleMoves;
 	//std::vector<PossibleMove> PossibleAttack;
 	sf::Vector2f positionOnBoard;
 

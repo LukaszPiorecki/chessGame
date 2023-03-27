@@ -5,11 +5,11 @@ void Bishop::move(Board& t_board, std::unique_ptr<Piece>** t_arrangement)
 	{
 		if (t_arrangement[getX()+i][getY()+i] == nullptr)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, getX()+i, getY()+i));
+			possibleMoves.push_back(PossibleMove(t_board, getX()+i, getY()+i));
 		}
 		else if (t_arrangement[getX()+i][getY()+i]->getColor() != color)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, getX()+i, getY()+i));
+			possibleMoves.push_back(PossibleMove(t_board, getX()+i, getY()+i));
 			break;
 		}
 		else break;
@@ -18,11 +18,11 @@ void Bishop::move(Board& t_board, std::unique_ptr<Piece>** t_arrangement)
 	{
 		if (t_arrangement[getX() + i][getY() + i] == nullptr)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, getX() + i, getY() + i));
+			possibleMoves.push_back(PossibleMove(t_board, getX() + i, getY() + i));
 		}
 		else if (t_arrangement[getX() + i][getY() + i]->getColor() != color)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, getX() + i, getY() + i));
+			possibleMoves.push_back(PossibleMove(t_board, getX() + i, getY() + i));
 			break;
 		}
 		else break;
@@ -31,11 +31,11 @@ void Bishop::move(Board& t_board, std::unique_ptr<Piece>** t_arrangement)
 	{
 		if (t_arrangement[getX() - i][getY() + i] == nullptr)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, getX() - i, getY() + i));
+			possibleMoves.push_back(PossibleMove(t_board, getX() - i, getY() + i));
 		}
 		else if (t_arrangement[getX() - i][getY() + i]->getColor() != color)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, getX() - i, getY() + i));
+			possibleMoves.push_back(PossibleMove(t_board, getX() - i, getY() + i));
 			break;
 		}
 		else break;
@@ -44,11 +44,11 @@ void Bishop::move(Board& t_board, std::unique_ptr<Piece>** t_arrangement)
 	{
 		if (t_arrangement[getX() + i][getY() - i] == nullptr)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, getX() + i, getY() - i));
+			possibleMoves.push_back(PossibleMove(t_board, getX() + i, getY() - i));
 		}
 		else if (t_arrangement[getX() + i][getY() - i]->getColor() != color)
 		{
-			possibleMoves.push_back(new PossibleMove(t_board, getX() + i, getY() - i));
+			possibleMoves.push_back(PossibleMove(t_board, getX() + i, getY() - i));
 			break;
 		}
 		else break;
